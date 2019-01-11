@@ -79,11 +79,11 @@ var revPlugin = function revPlugin(config) {
                   hash.update(data.toString(), 'utf8');
                   line = line.replace(groups[2], hash.digest('hex'));
                 } catch(e) {
-                  // if(mode==='loose'){
-                  //   line = line.replace(groups[2], new Date().getTime());
-                  // }else{
+                  if(mode==='loose'){
+                    line = line.replace(groups[2], new Date().getTime());
+                  }else{
                   console.log('The file could not be found ---- [path:'+dependencyPath+']')
-                  // }
+                  }
 
                 }
                 break;
