@@ -23,12 +23,19 @@ gulp.task("rev",()=>{
 
 ```html
 <!-- index.html -->
+
 <link href="dist/index.css?rev=@@hash" rel="stylesheet"/>
 <!-- <link href="dist/index.css?rev=5cadf43edba6a97980d42331f9fffd17" rel="stylesheet"/> -->
+
+
 <script src="dist/index..js?rev=@@hash"></script>
 <!-- <script src="dist/index..js?rev=5cadf43edba6a97980d42331f9fffd17"></script> -->
+
+
 <img src="./dist/index.png?rev=@@hash" />
 <!-- <img src="./dist/index.png?rev=5cadf43edba6a97980d42331f9fffd17" /> -->
+
+
 <a href="./dsit/index.html?rev=@@hash" >index</a>
 <!-- <a href="./dsit/index.html?rev=5cadf43edba6a97980d42331f9fffd17" >index</a> -->
 
