@@ -1,6 +1,6 @@
 {
   "name": "gulp-rev-append-fake",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "copy \"gulp-rev-append\"",
   "main": "index.js",
   "scripts": {
