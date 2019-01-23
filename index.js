@@ -16,7 +16,9 @@ var revPlugin = function revPlugin(config) {
     outputPath,
     rootDir = ''
   } = config;
+  // 项目根目录
   var rootPath = path.join(__dirname,'../../'+rootDir);
+  // 静态资源输出目录
   var outputRootPath = path.join(__dirname,'../../');
 
   return map(function(file, cb) {
@@ -46,11 +48,9 @@ var revPlugin = function revPlugin(config) {
     for(i = 0; i < length; i++) {
       line = lines[i];
       declarations = line.match(FILE_DECL);
-
       if (declarations && declarations.length > 0) {
 
         for(var j = 0; j < declarations.length; j++) {
-
           groups = FILE_DECL.exec(declarations[j]);
 
           if(groups && groups.length > 1) {
@@ -67,7 +67,6 @@ var revPlugin = function revPlugin(config) {
                   dependencyPath = path.join(rootPath,normPath);
                 } else { // 其他 相对路径
                   if(outputPath){ // 配置了输出路径
-                    console.log(outputRootPath,outputPath,normPath);
                     dependencyPath = path.resolve(outputRootPath, outputPath ,normPath);
                   }else{
                     dependencyPath = path.resolve(path.dirname(file.path), normPath);
@@ -82,7 +81,8 @@ var revPlugin = function revPlugin(config) {
                   if(mode==='loose'){
                     line = line.replace(groups[2], new Date().getTime());
                   }else{
-                  console.log('The file could not be found ---- [path:'+dependencyPath+']')
+
+                    console.log(`"${path.basename(file.path)}":The file could not be found   ---- [path:${dependencyPath}]`)
                   }
 
                 }
